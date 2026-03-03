@@ -51,12 +51,20 @@ app.use(limiter);
 // app.use(cors());
 
 // CORS with specific origins and credentials
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173",
+//     "https://your-frontend-domain.vercel.app"
+//   ],
+//   credentials: true
+// }));
+
+
+// allow CORS for all origins (for development)
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://your-frontend-domain.vercel.app"
-  ],
-  credentials: true
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.get("/", (req, res) => {
