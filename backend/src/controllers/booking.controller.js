@@ -69,6 +69,22 @@ export const getAllBookings = async (req, res) => {
 };
 
 
+// // ADMIN UPDATE STATUS
+// export const updateBookingStatus = async (req, res) => {
+
+//   const booking = await Booking.findById(req.params.id);
+
+//   if (!booking) {
+//     return res.status(404).json({ message: "Booking not found" });
+//   }
+
+//   booking.bookingStatus = req.body.status;
+
+//   await booking.save();
+
+//   res.json(booking);
+// };
+
 // ADMIN UPDATE STATUS
 export const updateBookingStatus = async (req, res) => {
 
@@ -78,7 +94,7 @@ export const updateBookingStatus = async (req, res) => {
     return res.status(404).json({ message: "Booking not found" });
   }
 
-  booking.bookingStatus = req.body.status;
+  booking.bookingStatus = req.body.bookingStatus;
 
   await booking.save();
 
