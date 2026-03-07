@@ -5,7 +5,8 @@ import {
   createDesign,
   getDesigns,
   getDesign,
-  deleteDesign
+  deleteDesign,
+  updateDesign
 } from "../controllers/design.controller.js";
 
 import upload from "../middleware/upload.middleware.js";
@@ -23,6 +24,13 @@ router.post(
   authorize("admin"),
   upload.array("images", 5),
   createDesign
+);
+
+router.put(
+  "/:id",
+  protect,
+  authorize("admin"),
+  updateDesign
 );
 
 router.delete(
